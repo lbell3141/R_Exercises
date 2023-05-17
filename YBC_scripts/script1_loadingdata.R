@@ -6,7 +6,19 @@
 #Use relative directory to tell R where to look (use 'getwd()'
 #to see where in the directory you are and what you need to specify. 
 #Here, I had to specify the folder 'YBCU_data/' before the csv file)
-  ybc=read.csv("YBCU_data/AESO_YBCU_Pre2022DataExport_WorkingCopy_20230118.csv", header=TRUE)
+  ybc=read.csv("YBCU_data/AESO_YBCU_Pre2022DataExport_WorkingCopy_20230118.csv", header=TRUE, na.strings=c("NR")
 
+#Change misread types of data to their proper class
+#Be sure to assign as.numeric
 
+ybc$TotalHours=as.numeric(ybc$TotalHours)
+typeof(ybc$TotalHours)
 
+t_h=ybc$TotalHours
+typeof(t_h)
+
+?`double-class`
+
+mean(ybc$Year)
+
+plot(ybc$TotalNumCuckoos)
